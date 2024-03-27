@@ -1,0 +1,24 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <h1>Nabin blog site</h1>
+    <div class="posts">
+      {%for obj in posts %}
+      <div class="item">
+        <a href="/posts/{{obj.id}}">
+          <h1>{{ obj.Title }}</h1>
+          <p>{{obj.Desc|truncatewords:40}}</p>
+        </a>
+      </div>
+      {%endfor%}
+    </div>
+    <a href="/create">Write new blog</a>
+  </body>
+</html>
